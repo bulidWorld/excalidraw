@@ -272,12 +272,14 @@ export const SaveToServerCard: React.FC<SaveToServerCardProps> = ({
             {/* 操作按钮 */}
             <div className="SaveToServerDialog__actions">
               <Button
+                onSelect={handleCloseDialog}
                 onClick={handleCloseDialog}
                 disabled={isSaving}
               >
                 取消
               </Button>
               <Button
+                onSelect={handleSave}
                 onClick={handleSave}
                 disabled={isSaving || !selectedFolder}
               >
