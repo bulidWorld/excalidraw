@@ -132,6 +132,7 @@ import DebugCanvas, {
 } from "./components/DebugCanvas";
 import { AIComponents } from "./components/AI";
 import { ExcalidrawPlusIframeExport } from "./ExcalidrawPlusIframeExport";
+import { SaveToServerCard } from "./components/SaveToServerCard";
 
 import "./index.scss";
 
@@ -803,6 +804,13 @@ const ExcalidrawWrapper = () => {
             toggleTheme: true,
             export: {
               onExportToBackend,
+              renderCustomUI: (elements, appState, files) => (
+                <SaveToServerCard
+                  elements={elements}
+                  appState={appState}
+                  files={files}
+                />
+              ),
             },
           },
         }}
