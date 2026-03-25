@@ -8,8 +8,24 @@ import type {
   BinaryFiles,
 } from "@excalidraw/excalidraw/types";
 
-// 服务器 API 地址
-const SERVER_URL = import.meta.env.VITE_APP_SERVER_URL || "http://localhost:3002";
+// 服务器 API 地址 - 动态获取当前页面 URL（与前端同源）
+const getServerUrl = (): string => {
+  // 优先使用环境变量
+  if (import.meta.env.VITE_APP_SERVER_URL) {
+    return import.meta.env.VITE_APP_SERVER_URL;
+  }
+  
+  // 否则使用当前页面的协议和主机（同源配置）
+  if (typeof window !== 'undefined') {
+    const origin = window.location.origin;
+    return origin;
+  }
+  
+  // 降级方案（服务端渲染时使用）
+  return "http://localhost:10514";
+};
+
+const SERVER_URL = getServerUrl();
 
 export interface SaveToServerResult {
   success: boolean;
