@@ -380,14 +380,12 @@ export const SaveToServerCard: React.FC<SaveToServerCardProps> = ({
                         >
                           {BackIcon}
                         </button>
-                        <span className="SaveToServerDialog__path">
-                          📁 {currentPath || "根目录"}
-                        </span>
+                     
                       </div>
                     )}
                     
                     {/* 文件夹列表 */}
-                    <div className="SaveToServerDialog__file-list" style={{ maxHeight: "200px" }}>
+                    <div className="SaveToServerDialog__file-list" style={{ maxHeight: "400px" }}>
                       {isLoading ? (
                         <div className="SaveToServerDialog__loading" aria-busy="true">
                           <div className="spinner"></div>
@@ -414,8 +412,8 @@ export const SaveToServerCard: React.FC<SaveToServerCardProps> = ({
                               tabIndex={0}
                               aria-label="选择根目录"
                               style={{
-                                minHeight: "48px",
-                                padding: "12px 16px",
+                                minHeight: "20px",
+                                padding: "4px 8px",
                                 cursor: "pointer"
                               }}
                             >
@@ -461,8 +459,8 @@ export const SaveToServerCard: React.FC<SaveToServerCardProps> = ({
                               tabIndex={0}
                               aria-label={`文件夹 ${folder.name}`}
                               style={{
-                                minHeight: "48px",
-                                padding: "12px 16px",
+                                minHeight: "20px",
+                                padding: "4px 8px",
                                 cursor: "pointer"
                               }}
                             >
